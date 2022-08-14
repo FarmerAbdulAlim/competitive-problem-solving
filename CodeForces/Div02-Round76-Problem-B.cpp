@@ -1,7 +1,7 @@
 
 /*
     My Contact Info:-
-    Name: Md Abdul Alim
+    Author: Md Abdul Alim
     Email: travelerabdulalim@gmail.com
     LinkedIn: https://www.linkedin.com/in/travelerabdulalim/
     GitHub: https://github.com/travelerabdulalim

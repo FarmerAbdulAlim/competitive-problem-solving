@@ -1,12 +1,15 @@
+/**********************************************************************
+   *                   Solved By : Md Abdul Alim                      *
+   *                   GitHub: github.com/FarmerAbdulAlim             *
+   *                   Email: farmerabdulalim@gmail.com               *
+   *                   YouTube: youtube.com/@TravelerAbdulAlim        *
+   *                   YouTube: youtube.com/@VillageLifeWithAbdulAlim *
+   *********************************************************************/
+
 /*
-    My Contact Info:-
-    Name: Abdul Alim
-    Email: farmerabdulalim@gmail.com
-    LinkedIn: https://www.linkedin.com/in/farmerabdulalim/
-    GitHub: https://github.com/FarmerAbdulAlim
-    ------------------------------------------------------------------------
-    Algorithm Used: Number Theory
-    Idea:
+    Algorithm Used:
+    Complexity:
+    Solution Approach:
 */
 #include<bits/stdc++.h>
 using namespace std;

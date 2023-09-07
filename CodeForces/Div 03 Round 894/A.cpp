@@ -15,34 +15,38 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+string s[25];
+int n, m;
+
+bool columnCheck(int idx, char c) {
+    for(int i=0;i<n;i++) {
+        if(s[i][idx]==c) return true;
+    }
+    return false;
+}
+
 int main()
 {
-    int n, m, d, test, t=0, a[109];
+    int d, test;
     cin>>test;
     while(test--) {
-        cin>>n;
-        map<int, int>mp;
+        cin>>n>>m;
         for(int i=0;i<n;i++)
-        {
-            cin>>a[i];
-            mp[a[i]]++;
+            cin>>s[i];
+        bool check = false;
+        for(int i=0;i<m; i++) {
+            for(int j=i+1; j<m; j++) {
+                for(int k=j+1; k<m; k++) {
+                    for(int l=k+1; l<m; l++) {
+                        if(columnCheck(i, 'v') && columnCheck(j, 'i')&& columnCheck(k, 'k')&& columnCheck(l, 'a'))
+                            check = true;
+                    }
+                }
+            }
         }
-        sort(a, a+n);
-        bool isEqual = true;
-        for(int i=1;i<n;i++) {
-            if(a[0]!=a[i]) isEqual = false;
-        }
-        if(isEqual) puts("-1");
-        else {
-            d=mp[a[n-1]];
-            printf("%d %d\n", n-d, d);
-            for(int i=0; i<n-d; i++)
-                printf("%d ", a[i]);
-                puts("");
-            for(int i=1; i<=d; i++)
-                printf("%d ", a[n-1]);
-            puts("");
-        }
+        if(check) puts("Yes");
+        else puts("No");
     }
     return 0;
 }
+

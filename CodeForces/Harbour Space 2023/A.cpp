@@ -1,3 +1,4 @@
+
 /**************************************************************************
    *                 Solved By : Abdul Alim                               *
    *                 GitHub    : github.com/FarmerAbdulAlim               *
@@ -17,32 +18,42 @@ using namespace std;
 
 int main()
 {
-    int n, m, d, test, t=0, a[109];
+    int n, m, d, test, x, y;
     cin>>test;
-    while(test--) {
-        cin>>n;
-        map<int, int>mp;
-        for(int i=0;i<n;i++)
-        {
-            cin>>a[i];
-            mp[a[i]]++;
+    while(test--)
+    {
+        cin>>x>>y>>n;
+        vector<int>v;
+        v.push_back(y);
+        int i =1;
+        int cnt = 2;
+        d = y;
+        while(cnt<=n-1 && d>x) {
+            v.push_back(d-i);
+            d = d - i;
+            i++;
+            cnt++;
         }
-        sort(a, a+n);
-        bool isEqual = true;
-        for(int i=1;i<n;i++) {
-            if(a[0]!=a[i]) isEqual = false;
-        }
-        if(isEqual) puts("-1");
+        v.push_back(x);
+        bool isOkay = true;
+        if(v.size()!=n) puts("-1");
         else {
-            d=mp[a[n-1]];
-            printf("%d %d\n", n-d, d);
-            for(int i=0; i<n-d; i++)
-                printf("%d ", a[i]);
-                puts("");
-            for(int i=1; i<=d; i++)
-                printf("%d ", a[n-1]);
+            sort(v.begin(), v.end());
+            for(int i= 0; i<n-2; i++) {
+                if(v[i+1]-v[i]<=v[i+2]-v[i+1]) isOkay = false;
+            }
+
+            if(isOkay) {
+                for(int i = 0; i<n; i++) {
+                cout<<v[i]<<" ";
+            }
             puts("");
+            }
+            else puts("-1");
+
         }
     }
     return 0;
 }
+
+

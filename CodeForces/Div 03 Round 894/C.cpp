@@ -1,3 +1,4 @@
+
 /**************************************************************************
    *                 Solved By : Abdul Alim                               *
    *                 GitHub    : github.com/FarmerAbdulAlim               *
@@ -8,7 +9,7 @@
 
 /*
     Algorithm Used:
-    Complexity:
+    Complexity: O(N)
     Solution Approach:
 */
 
@@ -17,32 +18,29 @@ using namespace std;
 
 int main()
 {
-    int n, m, d, test, t=0, a[109];
+    int n, m, d, test, a[200009], b[200009];
     cin>>test;
     while(test--) {
         cin>>n;
-        map<int, int>mp;
-        for(int i=0;i<n;i++)
-        {
+        bool track = true;
+        memset(b, 0, sizeof(b));
+        for(int i=0;i<n;i++) {
             cin>>a[i];
-            mp[a[i]]++;
+            if(a[i]>n) {
+                continue;
+                track = false;
+            }
+            b[a[i]]++;
         }
-        sort(a, a+n);
-        bool isEqual = true;
-        for(int i=1;i<n;i++) {
-            if(a[0]!=a[i]) isEqual = false;
+        for(int i=n-1; i>=1; i--) {
+            b[i] = b[i] + b[i+1];
         }
-        if(isEqual) puts("-1");
-        else {
-            d=mp[a[n-1]];
-            printf("%d %d\n", n-d, d);
-            for(int i=0; i<n-d; i++)
-                printf("%d ", a[i]);
-                puts("");
-            for(int i=1; i<=d; i++)
-                printf("%d ", a[n-1]);
-            puts("");
+        for(int i=0;i<n;i++) {
+            if(a[i]!=b[i+1]) track = false;
         }
+        if(track) puts("Yes");
+        else puts("No");
     }
     return 0;
 }
+

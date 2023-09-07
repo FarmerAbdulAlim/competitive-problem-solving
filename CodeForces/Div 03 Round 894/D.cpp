@@ -15,34 +15,33 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define LL long long
+
+map<LL, LL>mp;
+
+void f() {
+    mp[1]= 2;
+    LL p = 100000;
+    for(LL i = 3; true; i++) {
+        LL q = i*(i-1)/2;
+        mp[q] = i;
+        if(q>=100000) break;
+    }
+}
+
 int main()
 {
-    int n, m, d, test, t=0, a[109];
+    LL n, m, d, test;
     cin>>test;
+    f();
     while(test--) {
         cin>>n;
-        map<int, int>mp;
-        for(int i=0;i<n;i++)
-        {
-            cin>>a[i];
-            mp[a[i]]++;
-        }
-        sort(a, a+n);
-        bool isEqual = true;
-        for(int i=1;i<n;i++) {
-            if(a[0]!=a[i]) isEqual = false;
-        }
-        if(isEqual) puts("-1");
-        else {
-            d=mp[a[n-1]];
-            printf("%d %d\n", n-d, d);
-            for(int i=0; i<n-d; i++)
-                printf("%d ", a[i]);
-                puts("");
-            for(int i=1; i<=d; i++)
-                printf("%d ", a[n-1]);
-            puts("");
+        for(int i=1;i<1000;i++) {
+            if(mp[i])
+                cout<<mp[i]<<endl;
         }
     }
     return 0;
 }
+
+
